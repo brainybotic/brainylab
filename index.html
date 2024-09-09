@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brainy-Lab</title>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index_sidebar.css" />
 
     <link
       rel="stylesheet"
@@ -26,17 +27,44 @@
         "right-trim": true,
       });
     </script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
-    <div style="display: flex; justify-content: center;">
-      <img src="./image/folder.png" alt="Folder" style="width: 50%;" />
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark">
+      <h2 class="p-3">Sidebar</h2>
+      <ul class="list-unstyled p-3">
+        <li><a href="#" class="text-white">Home</a></li>
+        <li><a href="#" class="text-white">Profile</a></li>
+        <li><a href="#" class="text-white">Settings</a></li>
+      </ul>
     </div>
 
-    <div id="container"></div>
+    <!-- Main Content -->
+    <div id="content">
+      <button id="toggleSidebar" class="btn btn-primary mb-3">
+        Toggle Sidebar
+      </button>
+      <h1>Main Content</h1>
+      <p>
+        This is the main content area. The sidebar can be toggled using the
+        button.
+      </p>
+      <div style="display: flex; justify-content: center">
+        <img src="./image/folder.png" alt="Folder" style="width: 50%" />
+      </div>
+
+      <div id="container"></div>
+    </div>
 
     <script>
-      fetch("https://raw.githubusercontent.com/brainybotic/brainylab/main/config_router1.yaml")
+      fetch(
+        "https://raw.githubusercontent.com/brainybotic/brainylab/main/config_router1.yaml"
+      )
         .then((response) => response.text())
         .then((text) => {
           // once the file has been loaded, we can parse it into an object.
@@ -99,6 +127,15 @@
         });
     </script>
 
-
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("toggleSidebar")
+        .addEventListener("click", function () {
+          document.getElementById("sidebar").classList.toggle("collapsed");
+          document.getElementById("content").classList.toggle("collapsed");
+        });
+    </script>
   </body>
 </html>
