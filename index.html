@@ -40,6 +40,7 @@
         .then((response) => response.text())
         .then((text) => {
           // once the file has been loaded, we can parse it into an object.
+          console.log("text: ", text);
           const yaml = jsyaml.load(text);
           console.log(yaml);
           return yaml;
