@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrainyLab - Python Libraries</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index_sidebar.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Toggle Sidebar Button (always visible) -->
+    <button id="toggleSidebar" class="toggle-btn btn btn-dark">
+      <i class="fas fa-chevron-left"></i>
+      <!-- Font Awesome icon -->
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark">
+      <div id="sidebar-container"></div>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+      <h1>Home Lab</h1>
+
+      <div style="display: flex; justify-content: center" class="py-5">
+        <img src="./image/home_lab.jpeg" alt="Virtual Lab" style="width: 50%" />
+      </div>
+
+      <h2>Importância de um Homelab para Estudo de Cibersegurança</h2>
+      <p>Criar um <strong>homelab</strong> (laboratório caseiro) é uma excelente maneira de estudar cibersegurança porque oferece um ambiente controlado para testar ferramentas, aprender conceitos e simular cenários do mundo real sem comprometer a segurança de outras redes. Aqui estão algumas razões pelas quais é importante para o estudo da cibersegurança:</p>
+  
+      <h4>1. Ambiente de Aprendizagem Prático</h4>
+      <p>No homelab, você pode experimentar vulnerabilidades, ataques e defesas de forma prática, o que é fundamental para solidificar o conhecimento teórico. Isso inclui simular ataques de <strong>pen testing</strong>, implementar <strong>firewalls</strong>, estudar <strong>forense digital</strong>, entre outros.</p>
+  
+      <h4>2. Erro sem Consequências Reais</h4>
+      <p>Ao contrário de ambientes de produção, cometer erros em um homelab não traz consequências graves, o que permite aprender com falhas sem impactar terceiros.</p>
+  
+      <h4>3. Simulação de Redes Corporativas</h4>
+      <p>Você pode configurar uma rede complexa, incluindo servidores, estações de trabalho, roteadores e firewalls, para simular um ambiente corporativo, aprendendo a proteger infraestruturas de TI.</p>
+  
+      <h4>4. Experiência com Ferramentas Profissionais</h4>
+      <p>Um homelab permite o uso de ferramentas de cibersegurança amplamente utilizadas na indústria, como o <strong>Wireshark</strong>, <strong>Metasploit</strong>, <strong>Kali Linux</strong>, <strong>Snort</strong>, entre outros.</p>
+  
+      <h4>5. Desenvolvimento de Habilidades em Virtualização</h4>
+      <p>O uso de máquinas virtuais (VMs) para simular diferentes sistemas operacionais e redes é comum. Isso ajuda a ganhar experiência com <strong>hypervisores</strong>, como o <strong>VirtualBox</strong>, <strong>VMware</strong>, e ferramentas de <strong>orquestração</strong>, como o <strong>Docker</strong>.</p>
+  
+      <h4>6. Aprendizado de Automação e Gestão de Sistemas</h4>
+      <p>Criar scripts de automação, implementar ferramentas de monitoramento e gerenciamento de sistemas, como o <strong>Ansible</strong> ou o <strong>Nagios</strong>, pode ser explorado para aumentar o conhecimento em administração de sistemas e resposta a incidentes.</p>
+  
+      <h4>7. Exploração de Vulnerabilidades em um Ambiente Seguro</h4>
+      <p>Você pode testar explorações conhecidas e desconhecidas, estudar patches e atualizações de segurança e entender como vulnerabilidades afetam sistemas reais.</p>
+  
+      <h4>8. Preparo para Certificações</h4>
+      <p>Muitos laboratórios de cibersegurança são projetados para preparar alunos para certificações como <strong>CEH</strong> (Certified Ethical Hacker), <strong>OSCP</strong> (Offensive Security Certified Professional), <strong>CISSP</strong> (Certified Information Systems Security Professional), entre outras.</p>
+  
+      <p>Com um homelab, o aprendizado é flexível e adaptado às suas necessidades e ritmo.</p>
+  
+
+      <h2>GNS3</h2>
+      <p>
+        Graphical Network Simulator-3 é um emulador de software de rede lançado
+        pela primeira vez em 2008. Ele permite a combinação de dispositivos
+        virtuais e reais, usados ​​para simular redes complexas. Ele usa o
+        software de emulação Dynamips para simular o Cisco IOS.
+      </p>
+      <p>
+        <img src="./image/gns3_lab.png" alt="Rich" style="width: 50%" />
+      </p>
+      <p>
+        <a href="https://www.gns3.com/" target="_blank"
+          >GNS3</a
+        ><br />
+      </p>
+
+      <h1>Cenários de Cibersegurança num Homelab</h1>
+
+      <div style="display: flex; justify-content: center">
+        <img src="./image/scenario.jpeg" alt="Folder" style="width: 50%" />
+      </div>
+      
+      <h4>1. Pentesting (Teste de Invasão)</h4>
+      <p><strong>Objetivo:</strong> Testar vulnerabilidades em sistemas e redes.</p>
+      <p><strong>Ferramentas:</strong> Kali Linux, Metasploit, Nmap, Wireshark.</p>
+      <p><strong>Cenário:</strong> Criar uma rede com máquinas vulneráveis, como o Metasploitable, para testar diferentes técnicas de invasão.</p>
+  
+      <h4>2. Configuração de Firewalls e IDS/IPS</h4>
+      <p><strong>Objetivo:</strong> Configurar firewalls e sistemas de detecção/prevenção de intrusões.</p>
+      <p><strong>Ferramentas:</strong> pfSense, Snort, Suricata.</p>
+      <p><strong>Cenário:</strong> Simular ataques e monitorar o tráfego para verificar como o firewall e o IDS/IPS respondem.</p>
+  
+      <h4>3. Análise de Malware</h4>
+      <p><strong>Objetivo:</strong> Desmontar e estudar o comportamento de malwares.</p>
+      <p><strong>Ferramentas:</strong> Cuckoo Sandbox, Remnux.</p>
+      <p><strong>Cenário:</strong> Analisar o comportamento de arquivos suspeitos em um ambiente isolado para entender como funcionam.</p>
+  
+      <h4>4. Simulação de Ataques DDoS</h4>
+      <p><strong>Objetivo:</strong> Testar a resiliência de servidores frente a ataques de negação de serviço.</p>
+      <p><strong>Ferramentas:</strong> LOIC, HOIC, ferramentas personalizadas.</p>
+      <p><strong>Cenário:</strong> Configurar uma rede de servidores e aplicar simulações de DDoS para analisar o impacto e as defesas.</p>
+  
+      <h4>5. Criação de Honeypots</h4>
+      <p><strong>Objetivo:</strong> Atrair e identificar atividades maliciosas em uma rede.</p>
+      <p><strong>Ferramentas:</strong> Cowrie, Dionaea, Kippo.</p>
+      <p><strong>Cenário:</strong> Implantar honeypots em uma rede para capturar tentativas de invasão e estudar as táticas dos invasores.</p>
+  
+
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Bind the toggle button click event when the DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle button functionality
+        document
+          .getElementById("toggleSidebar")
+          .addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+          });
+
+        // Load the sidebar content from sidebar.html
+        fetch("sidebar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject sidebar content into the sidebar container
+            document.getElementById("sidebar-container").innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error loading the sidebar:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

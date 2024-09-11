@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrainyLab - Python Libraries</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index_sidebar.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Toggle Sidebar Button (always visible) -->
+    <button id="toggleSidebar" class="toggle-btn btn btn-dark">
+      <i class="fas fa-chevron-left"></i>
+      <!-- Font Awesome icon -->
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark">
+      <div id="sidebar-container"></div>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+      <h1>Python Libraries</h1>
+      <p>Algumas das bibliotecas Python que eu usei no projeto:</p>
+      <h2>Rich</h2>
+      <p>
+        O Python rich é uma biblioteca que facilita a criação de interfaces de
+        linha de comando (CLI) visualmente atraentes e informativas.
+      </p>
+      <p>
+        <img
+          src="https://github.com/textualize/rich/raw/master/imgs/features.png"
+          alt="Rich"
+          style="width: 50%"
+        />
+      </p>
+      <p>
+        <a href="https://github.com/Textualize/rich" target="_blank"
+          >Rich Github</a
+        ><br />
+        <a href="https://rich.readthedocs.io/en/latest/" target="_blank"
+          >Rich Docs</a
+        >
+      </p>
+
+      <h2>psutil</h2>
+      <p>
+        psutil (utilitários de processo e sistema) é uma biblioteca
+        multiplataforma para recuperar informações sobre processos em execução e
+        utilização do sistema (CPU, memória, discos, rede, sensores) em Python.
+        É útil principalmente para monitoramento do sistema, criação de perfil e
+        limitação de recursos de processos e gerenciamento de processos em
+        execução. Ele implementa muitas funcionalidades oferecidas pelas
+        ferramentas clássicas de linha de comando do UNIX, como ps, top, iotop,
+        lsof, netstat, ifconfig, free e outras.
+      </p>
+      <p>
+        <img
+          src="https://github.com/giampaolo/psutil/raw/master/docs/_static/psutil-logo.png"
+          alt="psutil"
+          style="width: 50%"
+        />
+      </p>
+      <p>
+        <a href="https://github.com/giampaolo/psutil" target="_blank"
+          >psutil Github</a
+        ><br />
+        <a href="https://psutil.readthedocs.io/en/latest/" target="_blank"
+          >psutil Docs</a
+        >
+      </p>
+
+      <h2>YAML</h2>
+      <p>
+        YAML (Yet Another Markup Language) é um formato de serialização de dados
+        legível para humanos, amplamente usado para configurar arquivos de forma
+        simples e clara. Ele é frequentemente utilizado em sistemas de
+        configuração, como Kubernetes, Ansible e outros.
+      </p>
+      <p>
+        <img src="./image/yaml_example.png" alt="yaml" style="width: 50%" />
+      </p>
+      <p>
+        <a href="https://pyyaml.org/wiki/PyYAMLDocumentation" target="_blank"
+          >PyYAML Documentation</a
+        ><br />
+        <a href="https://realpython.com/python-yaml/" target="_blank"
+          >YAML: The Missing Battery in Python</a
+        >
+      </p>
+
+      <h2>scapy</h2>
+      <p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/3/3a/Scapy_logo.png"
+          alt="scapy"
+          style="width: 50%"
+        />
+      </p>
+      O Scapy é uma poderosa biblioteca de Python usada para a manipulação de
+      pacotes de rede. Ele permite criar, enviar, capturar, modificar e analisar
+      pacotes de dados de diferentes protocolos de rede, como TCP, UDP, ICMP,
+      entre outros. O Scapy é bastante flexível e amplamente utilizado para fins
+      de segurança, testes de penetração, análise forense e aprendizado de
+      redes. Ele é especialmente útil para explorar vulnerabilidades em redes e
+      realizar tarefas como spoofing, sniffing e traceroute. Diferente de outras
+      bibliotecas que focam em tarefas de alto nível, o Scapy oferece controle
+      granular sobre os pacotes, sendo uma ferramenta popular entre
+      pesquisadores de segurança e profissionais de rede
+      <a
+        href="https://scapy.readthedocs.io/en/latest/usage.html"
+        target="_blank"
+        >scapy Documentation</a
+      ><br />
+      <a href="https://scapy.net/" target="_blank">Welcome to Scapy</a>
+
+      <h2>paramiko</h2>
+      O Paramiko é uma biblioteca de Python utilizada para implementar conexões
+      SSH (Secure Shell) de maneira segura e automatizada. Com ela, é possível
+      realizar tarefas como executar comandos remotamente, transferir arquivos
+      (usando SFTP), ou até mesmo criar túneis SSH. O Paramiko suporta
+      autenticação por senha e por chave SSH, proporcionando uma forma segura de
+      administrar servidores e dispositivos de rede de maneira remota. É
+      amplamente utilizada por administradores de sistemas e desenvolvedores
+      para automatizar tarefas de administração de servidores e scripts que
+      interagem com máquinas remotas de forma segura.
+      <a
+        href="https://docs.paramiko.org/en/latest/"
+        target="_blank"
+        >paramiko Documentation</a
+      ><br />
+      <a href="https://www.paramiko.org/" target="_blank">Welcome to Paramiko!</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Bind the toggle button click event when the DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle button functionality
+        document
+          .getElementById("toggleSidebar")
+          .addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+          });
+
+        // Load the sidebar content from sidebar.html
+        fetch("sidebar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject sidebar content into the sidebar container
+            document.getElementById("sidebar-container").innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error loading the sidebar:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

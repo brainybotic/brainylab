@@ -7,15 +7,6 @@
 
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="index_sidebar.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
 
     <link
       rel="stylesheet"
@@ -36,6 +27,16 @@
         "right-trim": true,
       });
     </script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Toggle Sidebar Button (always visible) -->
@@ -51,38 +52,45 @@
 
     <!-- Main Content -->
     <div id="content">
-      <h1>Cinel CET93 - BrainyLab</h1>
-
-      <div style="display: flex; justify-content: center" class="py-5">
-        <img src="./image/folder.png" alt="Folder" style="width: 50%" />
+      <div class="embed-responsive embed-responsive-16by9 ">
+        <iframe
+          class="embed-responsive-item"
+          src="./scenarios/001/001.html"
+          allowfullscreen=""
+          width="100%"
+          height="800px"
+        ></iframe>
       </div>
-
-      <h2>Motivação</h2>
-      <p>
-        O projeto BrainyLab foi desenvolvido para auxiliar no curso
-        de <strong>CET93 - Curso de Técnico/a Especialista em Cibersegurança</strong> do Cinel a
-        consolidar e complementar os conhecimentos adquiridos em sessões de formação, através de
-        laboratórios práticos e cenários de cibersegurança.
-      </p>
-
-      <h2>Objetivos</h2>
-      <p>
-        O BrainyLab tem como objetivos principais:
-      </p>
-      <ul>
-        <li>Consolidar conhecimentos teóricos em cibersegurança</li>
-        <li>Desenvolver competências práticas em laboratórios virtuais</li>
-        <li>Simular cenários de cibersegurança em ambientes controlados</li>
-        <li>Criar um portfólio para demonstrar os conhecimentos adquiridos perante eventuais empregadores</li>
-      </ul>
 
       <div id="container"></div>
     </div>
 
 
+    <script>
+      fetch("data.yaml")
+        .then((response) => response.text())
+        .then((text) => {
+          const yaml = jsyaml.load(text);
+          const yamlDataElement = document.getElementById("yamlData");
+
+          // Loop through each element in the YAML object
+          for (const key in yaml) {
+            if (yaml.hasOwnProperty(key)) {
+              const element = yaml[key];
+
+              // Create a new HTML element for each element in the YAML object
+              const elementTag = document.createElement("div");
+              elementTag.textContent = JSON.stringify(element);
+
+              // Append the HTML element to the container
+              yamlDataElement.appendChild(elementTag);
+            }
+          }
+        });
+    </script>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
       // Bind the toggle button click event when the DOM is ready
       document.addEventListener("DOMContentLoaded", function () {

@@ -20,7 +20,52 @@
         padding: 20px;
         transition: margin-left 0.3s ease;
       }
+
+      #content {
+        margin-top: 50px;
+      }      
   
       #content.collapsed {
         margin-left: 0;
       }
+
+      .sidebar {
+        padding: 80px 15px;
+        font-size: 1.1em;
+        text-decoration: none;
+        color: white;
+        display: block;
+      }
+
+      /* Ensure the toggle button is always visible and at a fixed position */
+      #toggleSidebar {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000; /* Make sure it appears above other elements */
+      }
+
+      /* Sidebar collapsed state */
+      .collapsed {
+        width: 0;
+        transition: width 0.3s;
+      }
+
+      #sidebar {
+        width: 250px; /* Initial sidebar width */
+        height: 100vh;
+        position: fixed;
+        transition: width 0.3s;
+        overflow: hidden;
+      }
+
+      #content {
+        margin-left: 250px; /* Same width as the sidebar */
+        transition: margin-left 0.3s;
+      }
+
+      /* Adjust content margin when the sidebar is collapsed */
+      #sidebar.collapsed + #content {
+        margin-left: 0;
+      }
+    

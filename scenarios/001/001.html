@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrainyLab</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index_sidebar.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/line-numbers/prism-line-numbers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
+    <script type="text/javascript">
+      // Optional
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+        "remove-trailing": true,
+        "remove-indent": true,
+        "left-trim": true,
+        "right-trim": true,
+      });
+    </script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+
+    <!-- Main Content -->
+    <div id="content">
+      <h2>Cenário 001</h2>
+      <p>
+        Configuração de um router Cisco 2811 com duas interfaces FastEthernet
+      </p>
+      <div style="display: flex; justify-content: center">
+        <img src="./001.png" alt="Folder" style="width: 50%" />
+      </div>
+
+      <div id="container"></div>
+    </div>
+
+    <script>
+      fetch(
+        "https://raw.githubusercontent.com/brainybotic/brainylab/main/config_router1.yaml"
+      )
+        .then((response) => response.text())
+        .then((text) => {
+          // once the file has been loaded, we can parse it into an object.
+          console.log("text: ", text);
+          const yaml = jsyaml.load(text);
+          console.log(yaml);
+          return yaml;
+        })
+        .then((yaml) => {
+          // once we have the object, we can render it to the page.
+          renderJSON(yaml);
+        })
+        .then(() => {
+          Prism.highlightAll();
+        });
+
+      function renderJSON(data) {
+        const container = document.getElementById("container");
+        container.innerHTML = data.run
+          .map(
+            (item) =>
+              `<div><h4>${item.name}</h4>
+                ${item.description}</div>
+                <pre class="line-numbers">
+                        <code  class="language-yaml">
+                                \n
+                                ${JSON.stringify(item.command)
+                                  .replace(/,/g, `\n`)
+                                  .replace(/\"/g, "")
+                                  .replace(/\[/g, "")
+                                  .replace(/\]/g, "")}
+                        </code>
+                </pre>
+                `
+          )
+          .join("");
+      }
+    </script>
+
+    <script>
+      fetch("data.yaml")
+        .then((response) => response.text())
+        .then((text) => {
+          const yaml = jsyaml.load(text);
+          const yamlDataElement = document.getElementById("yamlData");
+
+          // Loop through each element in the YAML object
+          for (const key in yaml) {
+            if (yaml.hasOwnProperty(key)) {
+              const element = yaml[key];
+
+              // Create a new HTML element for each element in the YAML object
+              const elementTag = document.createElement("div");
+              elementTag.textContent = JSON.stringify(element);
+
+              // Append the HTML element to the container
+              yamlDataElement.appendChild(elementTag);
+            }
+          }
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

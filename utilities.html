@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrainyLab - Python Libraries</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index_sidebar.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Toggle Sidebar Button (always visible) -->
+    <button id="toggleSidebar" class="toggle-btn btn btn-dark">
+      <i class="fas fa-chevron-left"></i>
+      <!-- Font Awesome icon -->
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark">
+      <div id="sidebar-container"></div>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+      <h1>Utilitários</h1>
+      <p>Para desenvolver alguns conceitos de python e de redes, desenvolvi os seguintes utilitários:</p>
+
+      <h2>BrainyDash</h2>
+      <p>
+        BrainyDash é um painel de controle de código aberto para monitorizar
+        sistemas e redes. Ele é feito em Python, e usa
+        bibliotecas como Rich e psutil para exibir informações do sistema em
+        tempo real.
+      </p>
+      <p>
+        <img
+          src="./image/brainydash.png"
+          alt="BrainyDash"
+          style="width: 50%"
+        />
+      </p>
+      <p>
+        <a href="https://github.com" target="_blank"
+          >Github</a
+        ><br />
+      </p>
+
+      <h2>BrainyRun</h2>
+      <p>
+        BrainyRun é um utilitário de linha de comando que executa comandos em um sistema remoto.
+      </p>
+      <p>
+        <img
+          src="./image/brainyrun.png"
+          alt="BrainyRun"
+          style="width: 50%"
+        />
+      </p>
+      <p>
+        <a href="https://github.com" target="_blank"
+          >Github</a
+        ><br />
+      </p>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Bind the toggle button click event when the DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle button functionality
+        document
+          .getElementById("toggleSidebar")
+          .addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+          });
+
+        // Load the sidebar content from sidebar.html
+        fetch("sidebar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject sidebar content into the sidebar container
+            document.getElementById("sidebar-container").innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error loading the sidebar:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+---
+connection:
+    hostname    : 10.0.5.1
+    username    : formando
+    password    : Passw0rd
+    port        : 22
+
+run: 
+    -   name: Configuração de banner
+        description: Configuração de banner
+        command: 
+            - configure terminal
+            - "banner motd #====== Access restricted only to authorized personnel. ======"
+            - "=============================================================#"
+            - end
+
+    -   name: Desativação de DNS lookup
+        description: Desativação de DNS lookup
+        command: 
+            - configure terminal
+            - no ip domain-lookup
+            - end
+
+    -   name: Desativação de mensagens de log
+        description: Desativação de mensagens de log
+        command: 
+            - configure terminal 
+            - line console 0
+            - logging synchronous
+            - end
+
+    -   name: Desativação de paginação
+        description: Desativação de paginação
+        command: 
+            - terminal length 0
+
+    -   name: Configuração de interface
+        description: Configuração de interface
+        command: 
+            - configure terminal
+            - interface FastEthernet0/0
+            - description TO_R1
+            - ip address 172.17.0.1 255.255.255.0
+            - no shutdown
+            - end
+
+
+    -   name: Configuração do DNS
+        description: Configuração do DNS
+        command: 
+            - configure terminal
+            - ip dns server
+            - ip domain-lookup
+            - ip name-server 1.1.1.1
+            - ip name-server 8.8.8.8
+            - ip host debian 10.0.3.1
+            - ip host rocky 10.0.4.1
+            - end
+
+
+
+#    -   name: Gravação da configuração
+#        description: Gravação da configuração
+#        command: 
+#            - write memory
+
+#    -   name: Mostra a configuração atual
+#        description: Mostra a configuração atual
+#        command: 
+#            - show running-config
+
+    
+
+
+...
+
+
